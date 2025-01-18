@@ -131,6 +131,88 @@
         .empty {
             color: gray;
         }
+
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                width: 100%;
+            }
+            .code-input {
+                font-size: 20px;
+                letter-spacing: 5px;
+                padding: 8px;
+            }
+            .mood-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mood-section {
+                width: 100px;
+                height: 130px;
+            }
+            .button-container {
+                margin-top: 15px;
+            }
+            .mood-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+            .note {
+                font-size: 10px;
+            }
+            .calendar h3 {
+                font-size: 16px;
+            }
+            .calendar-day {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+            .calendar-day img {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .code-input {
+                font-size: 18px;
+                letter-spacing: 3px;
+                padding: 6px;
+            }
+            .mood-section {
+                width: 80px;
+                height: 100px;
+            }
+            .button-container {
+                margin-top: 10px;
+            }
+            .mood-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .note {
+                font-size: 8px;
+            }
+            .calendar h3 {
+                font-size: 14px;
+            }
+            .calendar-day {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+            .calendar-day img {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -209,6 +291,8 @@
             if (codeInput.value === '572985' || codeInput.value === '457932') {
                 localStorage.setItem('userCode', codeInput.value);
                 showMainPage(codeInput.value);
+            } else if (codeInput.value.length === 6) {
+                alert("Не верный код!");
             }
         });
 
